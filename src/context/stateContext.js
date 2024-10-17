@@ -22,11 +22,10 @@ export default function StateContext({ children }) {
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
   const [price, setPrice] = useState("");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
   const [list, setList] = useState([]);
   const [total, setTotal] = useState(0);
   const [width] = useState(641);
-  // const [invoices, setInvoices] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -50,63 +49,31 @@ export default function StateContext({ children }) {
     if (!description || !quantity || !price) {
       toast.error("Please fill in all inputs");
     } else {
-      const newItems = {
+      const newItem = {
         id: uuidv4(),
         description,
         quantity,
         price,
-        amount,
+        amount: quantity * price,
       };
       setDescription("");
       setQuantity("");
       setPrice("");
-      setAmount("");
-      setList([...list, newItems]);
+      setAmount(0);
+      setList([...list, newItem]);
       setIsEditing(false);
-      console.log(list);
     }
   };
 
-  // Calculate items amount function
-  useEffect(() => {
-    const calculateAmount = (amount) => {
-      setAmount(quantity * price);
-    };
-
-    calculateAmount(amount);
-  }, [amount, price, quantity, setAmount]);
-
-  /* Calculate total amount of items in table
-  This is the previous function to calculate the total amount of items in the table
-  But it has a bug where if you delete an item from the table, it still keeps the previous total amount.
-  The function after this comment uses `collect.js` which is a much better solution.  
-  */
-  // function CalcSum() {
-  //   let rows = document.querySelectorAll(".amount");
-  //   let sum = 0;
-
-  //   for (let i = 0; i < rows.length; i++) {
-  //     if (rows[i].className === "amount") {
-  //       sum += isNaN(rows[i].innerHTML) ? 0 : parseInt(rows[i].innerHTML);
-  //       setTotal(sum);
-  //     }
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   CalcSum();
-  // }, [price, quantity]);
-
-  // Use collect.js to calculate the total amount of items in the table. This is a much better function than the commented one above.
+  // Calculate total amount of items in table
   const calculateTotal = () => {
-    const allItems = list.map((item) => item.price);
-
+    const allItems = list.map((item) => item.amount);
     setTotal(collect(allItems).sum());
   };
 
   useEffect(() => {
     calculateTotal();
-  });
+  }, [list]);
 
   // Edit function
   const editRow = (id) => {
@@ -116,12 +83,12 @@ export default function StateContext({ children }) {
     setDescription(editingRow.description);
     setQuantity(editingRow.quantity);
     setPrice(editingRow.price);
+    setAmount(editingRow.amount);
   };
 
   // Delete function
   const deleteRow = (id) => {
     setList(list.filter((row) => row.id !== id));
-    // CalcSum();
     setShowModal(false);
   };
 

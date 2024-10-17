@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,14 +14,26 @@ export default function TableForm() {
     price,
     setPrice,
     amount,
+    setAmount,
     list,
+    setList,
     total,
+    setTotal,
     isEditing,
     showModal,
     setShowModal,
     handleSubmit,
     editRow,
   } = useContext(State);
+
+  useEffect(() => {
+    setAmount(quantity * price);
+  }, [quantity, price, setAmount]);
+
+  useEffect(() => {
+    const newTotal = list.reduce((acc, item) => acc + item.amount, 0);
+    setTotal(newTotal);
+  }, [list, setTotal]);
 
   return (
     <>
@@ -45,7 +57,7 @@ export default function TableForm() {
           <div className="flex flex-col">
             <label htmlFor="quantity">Quantity</label>
             <input
-              type="text"
+              type="number"
               name="quantity"
               id="quantity"
               placeholder="Quantity"
@@ -58,7 +70,7 @@ export default function TableForm() {
           <div className="flex flex-col">
             <label htmlFor="price">Price</label>
             <input
-              type="text"
+              type="number"
               name="price"
               id="price"
               placeholder="Price"
@@ -119,7 +131,7 @@ export default function TableForm() {
 
       <div>
         <h2 className="flex items-end justify-end text-gray-800 text-4xl font-bold">
-          Total. {total.toLocaleString()}
+          Total: {total.toLocaleString()}
         </h2>
       </div>
     </>

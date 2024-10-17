@@ -13,10 +13,6 @@ import { State } from "../context/stateContext";
 
 function App() {
   const {
-    name,
-    setName,
-    address,
-    setAddress,
     email,
     setEmail,
     phone,
@@ -54,36 +50,6 @@ function App() {
         <section>
           <div className="bg-white p-5 rounded shadow">
             <div className="flex flex-col justify-center">
-              <article className="md:grid grid-cols-2 gap-10">
-                <div className="flex flex-col">
-                  <label htmlFor="name">Your full name</label>
-                  <input
-                    type="text"
-                    name="text"
-                    id="name"
-                    placeholder="Enter your name"
-                    maxLength={56}
-                    autoComplete="off"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-
-                <div className="flex flex-col">
-                  <label htmlFor="address">Enter your address</label>
-                  <input
-                    type="text"
-                    name="address"
-                    id="address"
-                    placeholder="Enter your address"
-                    autoComplete="off"
-                    maxLength={96}
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                  />
-                </div>
-              </article>
-
               <article className="md:grid grid-cols-3 gap-10">
                 <div className="flex flex-col">
                   <label htmlFor="email">Enter your email</label>
