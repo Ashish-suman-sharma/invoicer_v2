@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { State } from "../context/stateContext";
 
 export default function Footer() {
-  const { name, email, website, phone, bankAccount, bankName } =
+  const { name, email, phone, bankAccount, bankName } =
     useContext(State);
 
   return (
@@ -27,26 +27,8 @@ export default function Footer() {
           <li>
             <span className="font-bold">Account number:</span> {bankAccount}
           </li>
-          <li>
-            <span className="font-bold">Website:</span>{" "}
-            <a href={website} target="_blank" rel="noopenner noreferrer">
-              {website}
-            </a>
-          </li>
         </ul>
       </footer>
-
-      <p className="text-center px-5 mt-8 text-xs ">
-        Ritesh Raj is built by{" "}
-        <a
-          href="https://tsbsankara.com"
-          target="_blank"
-          rel="noreferrer"
-          className="underline"
-        >
-           Ashish suman
-        </a>
-      </p>
     </>
   );
 }

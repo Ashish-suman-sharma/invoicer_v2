@@ -6,13 +6,13 @@ import collect from "collect.js";
 export const State = createContext();
 
 export default function StateContext({ children }) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState("Ritesh Raj");
   const [address, setAddress] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [bankName, setBankName] = useState("");
-  const [bankAccount, setBankAccount] = useState("");
-  const [website, setWebsite] = useState("");
+  const [email, setEmail] = useState("Riteshrajrrr@gmail.com");
+  const [phone, setPhone] = useState("8015566215");
+  const [bankName, setBankName] = useState("ICICI Bank");
+  const [bankAccount, setBankAccount] = useState("icici123456789");
+  const [website, setWebsite] = useState("https://riteshraj.com");
   const [clientName, setClientName] = useState("");
   const [clientAddress, setClientAddress] = useState("");
   const [invoiceNumber, setInvoiceNumber] = useState("");
@@ -105,8 +105,6 @@ export default function StateContext({ children }) {
     setBankName,
     bankAccount,
     setBankAccount,
-    website,
-    setWebsite,
     clientName,
     setClientName,
     clientAddress,

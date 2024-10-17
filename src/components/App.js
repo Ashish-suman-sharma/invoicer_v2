@@ -13,16 +13,6 @@ import { State } from "../context/stateContext";
 
 function App() {
   const {
-    email,
-    setEmail,
-    phone,
-    setPhone,
-    bankName,
-    setBankName,
-    bankAccount,
-    setBankAccount,
-    website,
-    setWebsite,
     clientName,
     setClientName,
     clientAddress,
@@ -50,82 +40,6 @@ function App() {
         <section>
           <div className="bg-white p-5 rounded shadow">
             <div className="flex flex-col justify-center">
-              <article className="md:grid grid-cols-3 gap-10">
-                <div className="flex flex-col">
-                  <label htmlFor="email">Enter your email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Enter your email"
-                    maxLength={255}
-                    autoComplete="off"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-
-                <div className="flex flex-col">
-                  <label htmlFor="website">Enter your website</label>
-                  <input
-                    type="url"
-                    name="website"
-                    id="website"
-                    placeholder="Enter your website"
-                    maxLength={96}
-                    autoComplete="off"
-                    value={website}
-                    onChange={(e) => setWebsite(e.target.value)}
-                  />
-                </div>
-
-                <div className="flex flex-col">
-                  <label htmlFor="phone">Enter your phone</label>
-                  <input
-                    type="text"
-                    name="phone"
-                    id="phone"
-                    placeholder="Enter your phone"
-                    maxLength={12}
-                    autoComplete="off"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                </div>
-              </article>
-
-              <article className="md:grid grid-cols-2 gap-10">
-                <div className="flex flex-col">
-                  <label htmlFor="bankName">Enter your bank name</label>
-                  <input
-                    type="text"
-                    name="bankName"
-                    id="bankName"
-                    placeholder="Enter your bank name"
-                    maxLength={56}
-                    autoComplete="off"
-                    value={bankName}
-                    onChange={(e) => setBankName(e.target.value)}
-                  />
-                </div>
-
-                <div className="flex flex-col">
-                  <label htmlFor="bankAccount">
-                    Enter your bank account number
-                  </label>
-                  <input
-                    type="text"
-                    name="bankAccount"
-                    id="bankAccount"
-                    placeholder="Enter your bank account number"
-                    maxLength={20}
-                    autoComplete="off"
-                    value={bankAccount}
-                    onChange={(e) => setBankAccount(e.target.value)}
-                  />
-                </div>
-              </article>
-
               <article className="md:grid grid-cols-2 gap-10 md:mt-16">
                 <div className="flex flex-col">
                   <label htmlFor="clientName">Enter your client's name</label>

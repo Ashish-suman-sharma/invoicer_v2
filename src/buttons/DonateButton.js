@@ -14,12 +14,12 @@ export default function DonateButton() {
       </a> */}
       <div className="flex">
         <a
-          href="https://www.paypal.com/donate/?hosted_button_id=U6J5KFC2KH8XG"
+          href="https://ashish-suman-sharma-github-io.vercel.app"
           target="_blank"
           rel="noreferrer"
           className="bg-red-500 py-2 px-6 rounded text-base hover:bg-red-600 text-white transition-all duration-150 hover:ring-4 hover:ring-red-400"
         >
-          Support the Creator
+          Developer website
         </a>
       </div>
     </>
