@@ -37,7 +37,7 @@ export default function Footer() {
       </footer>
 
       <p className="text-center px-5 mt-8 text-xs ">
-        Invoicer is built by{" "}
+        Ritesh Raj is built by{" "}
         <a
           href="https://tsbsankara.com"
           target="_blank"
